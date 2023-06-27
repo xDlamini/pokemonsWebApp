@@ -1,0 +1,21 @@
+.image {
+    width: 60px;
+    height: 35px;
+    display: block;
+    margin: 0 auto;
+    margin-top: 22px;
+  }
+  
+  .input-group {
+    margin-top: 20px;
+  }
+
+  .input-group input {
+    border-right: none;
+  }
+
+  .input-group btn {
+    border-radius: 0px;
+    border-left: 0px;
+    border-color: crimson;
+  }

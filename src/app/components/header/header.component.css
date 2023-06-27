@@ -1,0 +1,18 @@
+.header {
+    display: flex;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(to right, green 50%);
+  }
+
+
+  .links-container {
+    display: flex;
+    justify-content: flex-start;
+  }
+
+  .links-container a {
+    margin-right: 70px;
+  }
+  

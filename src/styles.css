@@ -1,1 +1,9 @@
 /* You can add global styles to this file, and also import other style files */
+@import "~bootstrap/dist/css/bootstrap.css";
+
+body {
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(to left, white 50%, red 50%);
+    background-size: 100% 200%; /* Adjust this value to control the stripe thickness */
+  }

@@ -1,0 +1,36 @@
+
+
+<div class="header">
+    <nav>
+        <ul>
+        <div class="links-container">
+          <li><a routerLink="/home">Home</a></li>
+          <li><a href="#">Pokemon List</a></li>
+          <li><a href="#">About</a></li>
+        </div>
+        </ul>
+      </nav>
+</div>
+
+
+
+<div class="pokemon-grid">
+    <div class="box"
+     *ngFor="let pokemon of pokemons" >
+        <h3>{{ pokemon.name }}</h3>
+        <img [src]="pokemon.sprites.front_default" alt="">
+        <p>
+            <b>Type:</b> {{ pokemon.types[0].type.name }}
+        </p>
+        <p>
+            <b>Height:</b> {{ pokemon.height }}
+        </p>
+        <p>
+            <b>Health:</b> {{ pokemon.stats[0].base_stat }}
+        </p>
+        <p>
+            <b>Attack Power:</b> {{ pokemon.stats[1].base_stat }}
+        </p>
+
+    </div>
+</div>

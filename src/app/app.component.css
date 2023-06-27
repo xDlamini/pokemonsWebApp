@@ -1,0 +1,7 @@
+/* Styling for <app-search> component */
+app-search {
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+  
