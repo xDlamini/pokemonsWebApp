@@ -9,8 +9,8 @@ export class ApiServiceService {
 
   constructor(private http: HttpClient) { }
 
-  getPokemons() {
-    return this.http.get(`https://pokeapi.co/api/v2/pokemon`);
+  getPokemons(limit: number, offset: number) {
+    return this.http.get(`https://pokeapi.co/api/v2/pokemon?limit=${limit}& offset=${offset}`);
   }
   //Above is a http request method to get the pokemons from the pokemon API 
   

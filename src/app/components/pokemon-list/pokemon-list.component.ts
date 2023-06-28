@@ -8,6 +8,8 @@ import { ApiServiceService } from 'src/app/services/api-service.service';
 })
 export class PokemonListComponent implements OnInit{
   pokemons: any[] = []; // Holds the retrieved Pokémon data
+  page = 1;
+  totalPokemons: number | undefined;
   filteredPokemons: any[] = [];
   searchTerm: string = ''; //holds the search term entered by the user
 
@@ -15,16 +17,7 @@ export class PokemonListComponent implements OnInit{
   //In the constructor we are calling our apiService so that we can use it in pokemonList component
 
   ngOnInit(): void {
-    this.apiService.getPokemons()//we are calling a getPokemons method from apiServiceService
-      .subscribe((response: any) => {
-        response.results.forEach((result: { name: string; }) => {
-          this.apiService.getPokemonData(result.name)
-            .subscribe((response: any) => {
-              this.pokemons.push(response);
-              console.log(response)
-            })
-        })
-      })
+    this.getPokemons();
 
     this.apiService.searchPokemon(this.searchTerm)
       .subscribe((response: any) => {
@@ -34,6 +27,21 @@ export class PokemonListComponent implements OnInit{
         this.filteredPokemons = response;
       })  
   }
+
+  getPokemons(){
+    this.apiService.getPokemons(20, this.page + 0)//we are calling a getPokemons method from apiServiceService
+      .subscribe((response: any) => {
+        this.totalPokemons = response.count;
+        response.results.forEach((result: { name: string; }) => {
+          this.apiService.getPokemonData(result.name)
+            .subscribe((response: any) => {
+              this.pokemons.push(response);
+              console.log(response)
+            })
+        })
+      })
+  }
+
   searchPokemon() {
     throw new Error('Method not implemented.');
   }

@@ -5,18 +5,16 @@
         <ul>
         <div class="links-container">
           <li><a routerLink="/home">Home</a></li>
-          <li><a href="#">Pokemon List</a></li>
+          <li><a routerLink="/">Pokemon List</a></li>
           <li><a href="#">About</a></li>
         </div>
         </ul>
       </nav>
 </div>
 
-
-
 <div class="pokemon-grid">
     <div class="box"
-     *ngFor="let pokemon of pokemons" >
+     *ngFor="let pokemon of pokemons | paginate: { itemsPerPage: 10, currentPage: page, totalItems: totalPokemons }" >
         <h3>{{ pokemon.name }}</h3>
         <img [src]="pokemon.sprites.front_default" alt="">
         <p>
@@ -34,3 +32,5 @@
 
     </div>
 </div>
+
+<pagination-controls (pageChange)="page = $event; pokemons = []; getPokemons() "></pagination-controls>
