@@ -16,6 +16,7 @@ import { AuthComponent } from './components/auth/auth.component';
 import { SignupComponent } from './components/signup/signup.component';
 import { HomeComponent } from './components/home/home.component';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { AboutComponent } from './components/about/about.component';
 
 @NgModule({
   declarations: [
@@ -27,14 +28,15 @@ import { NgxPaginationModule } from 'ngx-pagination';
     LoginComponent,
     AuthComponent,
     SignupComponent,
-    HomeComponent
+    HomeComponent,
+    AboutComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    NgxPaginationModule
+    NgxPaginationModule,
   ],
   providers: [ApiServiceService],
   bootstrap: [AppComponent]
